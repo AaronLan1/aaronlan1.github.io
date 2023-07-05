@@ -1,0 +1,595 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>sla</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='singmy服务协议'><span>Singmy服务协议</span></h2><p><span>尊敬的用户，欢迎您使用Singmy服务！</span></p><p><span>为了充分保障您的权益，在开始使用服务之前，请您阅读并恪守《Singmy服务协议》和《Singmy隐私政策》。请您务必细心查阅、充分理解这些条款，特别是涉及到免除或限制Singmy责任、限制用户权利、约定争议解决方式和司法管辖的相关条款，以及开通或使用某项服务的单独协议或规则。为了引起您的特别注意，这些条款可能会以加粗、加下划线的方式呈现。</span></p><p><span>除非您在阅读和理解本协议所有条款方面已经达到了充分的程度，否则我们无法保证您有权使用Singmy的服务。您点击“同意”或“下一步”，或使用Singmy服务，或者通过任何其他形式的明示或默示方式表示接受本协议，都将视为您已经阅读并同意签署本协议。一旦您做出上述行为，本协议就会在您与Singmy之间产生法律约束力，并成为对双方均具有法律效力的文件。如果您因为年龄、智力等因素不具备完全民事行为能力，我们建议您在法定监护人（以下简称“监护人”）的陪同下审慎阅读和判断是否同意本协议，并特别注意未成年人使用条款。如果您是中国大陆地区以外的用户，您在遵守本协议时还需要同时遵守您所属或所处国家或地区的法律。</span></p><h4 id='术语解释'><span>术语解释</span></h4><p><span>“法律法规”：指用户所属或所处地区、国家现行有效的法律、行政法规、司法解释、地方法规、地方规章、部门规章及其他规范性文件以及对于该等法律法规的不时修改和补充。</span></p><p><span>“Singmy”：指Singmy和其相关服务可能存在的运营关联单位。</span></p><p><span>“用户”：指Singmy的服务的使用人，在本协议中更多地称为“您”。</span></p><p><span>“第三方”：指与Singmy及其用户或协议无直接关联的其他个人、组织或实体。</span></p><p><span>“不可抗力”：指不能预见、不能克服并不能避免且对一方或双方造成重大影响的客观事件，包括但不限于自然灾害如洪水、地震、瘟疫流行和风暴等以及社会事件如战争、动乱、政府行为等。</span></p><h4 id='一协议的范围'><span>一、【协议的范围】</span></h4><ol start='' ><li><span>本协议是用户与Singmy之间关于其使用Singmy的服务所订立的协议。</span></li><li><span>Singmy的服务是指Singmy向用户提供的，包括但不限于数据管理、数据处理等产品及服务，具体服务以Singmy实际提供的为准（以下简称“本服务”）。</span></li><li><span>协议的具体条款同时包含《Singmy隐私政策》。当您在使用Singmy的某项特定服务时，该服务的单独条款、相关的业务规则（统称为“单独协议”）也可能被适用。上述内容一旦公开发布，即被视为本协议的核心部分，您也同样有遵守的责任。您对上述任何单独协议的认可，也等同于您对本协议的全部的接受。您对本协议的接受，也等同于您对《Singmy隐私政策》的接受。</span></li></ol><h4 id='二帐号与密码安全'><span>二、【帐号与密码安全】</span></h4><ol start='' ><li><span>您在使用本公司服务时可能需要注册帐号。关于您使用帐号的具体规则，请仔细阅读并遵守相关单独协议。</span></li><li><span>为保证您个人信息的安全，请妥善管理账号和密码等敏感信息。在使用完毕后，请务必确保账号安全退出。如因您未妥善管理上述信息导致账号被盗或密码泄露，责任将由您自行承担。</span></li><li><span>在您使用本服务期间，您可能需要为您所使用的账户设定昵称或头像等用户信息。请确保所提供的用户信息在法律、公共秩序和良好道德，以及Singmy平台规则等范围内，以符合所有涉及的合法权益方式进行设置，避免侵犯任何个体的合法权益。</span></li></ol><h4 id='三用户个人信息保护'><span>三、【用户个人信息保护】</span></h4><ol start='' ><li><span>保护用户个人信息是Singmy的一项基本原则。Singmy将按照本协议及《Singmy隐私政策》的规定收集、使用、储存和分享您的个人信息。本协议对个人信息保护相关内容具体以《Singmy隐私政策》的内容为准。</span></li><li><span>Singmy将严格依照协议内容和《Singmy隐私政策》的规定，在恰当的时机，对获取、使用、储存和分享您的个人信息进行合理的收集、处理、储存和分享。在个人信息保护的相关条款上，应以《Singmy隐私政策》的详细内容为准。</span></li><li><span>在您注册账户或使用本服务的过程中，可能需要填写一些必需的信息。如果法律法规有规定的，需要您提供真实的身份信息。如果您的信息不完整，可能无法正常使用本服务，或者在使用过程中受到限制。</span></li><li><span>在通常情况下，根据产品规则，你可以浏览并修改你提交的相关信息。但考虑到安全性和身份验证的重要性，你可能无法修改注册时提供的初始注册信息以及其他验证信息（如用户名等）。</span></li><li><span>Singmy会利用各类安全技术和规范的操作流程，构建全面、完善且严密的信息管理体系，以保障您的个人信息免受非法访问、使用和泄露。</span></li><li><span>Singmy不会将您的个人信息转移或披露给任何第三方，但有以下情况的除外：</span></li></ol><p><span>（1）相关法律法规或司法机关、行政机关要求。</span></p><p><span>（2）与国家安全、国防安全直接相关的；</span></p><p><span>（3）与公共安全、公共卫生、重大公共利益直接相关的；</span></p><p><span>（4）为完成合并、分立、收购或资产转让而转移。</span></p><p><span>（5）为提供您要求的服务所必需。</span></p><p><span>（6）依据《Singmy隐私政策》或其他相关协议规则可以转移或披露给任何第三方的情形。</span></p><ol start='7' ><li><span>Singmy高度重视未成年人的个人信息安全。在您尚未具备完全民事行为能力之前，在使用Singmy的服务前，必须取得法定监护人的同意。</span></li></ol><h4 id='四使用本服务的方式'><span>四、【使用本服务的方式】</span></h4><ol start='' ><li><span>您依本协议条款所取得的权利不可转让。</span></li><li><span>您无权将根据本协议所列条款所取得的权益转让他人。</span></li><li><span>禁止使用任何方式（包括但不限于第三方软件、插件、外挂、系统、设备等）对本服务进行干扰、破坏、修改或施加其他影响。</span></li><li><span>在使用此服务时，您需要遵循Singmy的协议规定，不得通过任何第三方软件、插件、外挂、系统或设备来接入或使用服务。</span></li><li><span>在未获得Singmy的授权下，任何人不得利用第三方软件、插件、外挂、系统等工具，对Singmy、Singmy的合作伙伴或用户所包含的任何相关信息、数据等内容进行查看、获取。同时，使用者必须严格遵守Singmy所发布的Robots协议等相关协议规则。</span></li></ol><h4 id='五按现状提供服务'><span>五、【按现状提供服务】</span></h4><ol start='' ><li><span>当前服务的实现，是根据当前技术和资源状况所能达到的现状进行的。Singmy承诺将持续优化，维护服务的稳定性和安全性，全力确保服务的连续性，然而Singmy无法准确预测及防范相关的法律风险、技术挑战、以及其他潜在的不利影响，Singmy在法律许可的范围内，对这些可能产生的风险免责，包括但不限于不可控的力量、病毒、木马、黑客攻击、系统不稳定、第三方服务的瑕疵、政府行为，等等，由于这些因素，可能导致服务的中断、数据的遗失，以及其他可能出现的损失和风险。</span></li><li><span>因经营策略安排或调整等原因，不同区域的用户在使用Singmy服务时可能会遇到具体内容的差异。这些差异的实际情况应以Singmy在各个区域所提供的实际服务为准。</span></li></ol><h4 id='六自备设备'><span>六、【自备设备】</span></h4><ol start='' ><li><span>在使用此服务时，您需要独立承担为终端设备准备和相关服务费用的责任，例如确保电脑、移动设备和必需的网络接入设备的存在，并支付必要的费用，如电话费和上网费用等。</span></li><li><span>您已经确认并同意，您使用我们的服务时会消耗您的终端设备和带宽等资源。</span></li></ol><h4 id='七广告'><span>七、【广告】</span></h4><p><span>目前为止，Singmy不会向产品或服务内插入任何形式的商业广告，但Singmy服务中的第三方SDK可能会投放一些广告，Singmy将尽力避免这种情况的发生。对这些第三方SDK可能投放的广告，您应审慎判断其真实性和可靠性。</span></p><h4 id='八服务费用'><span>八、【服务费用】</span></h4><ol start='' ><li><span>如需使用Singmy的收费服务，请严格遵守相关协议条款。</span></li><li><span>Singmy有权依据实际需求对包含在收费服务内的收费项目和收费方式进行修订与调整，同时，Singmy也可能对部分免费服务启动收费模式。为确保告知效果，在上述修改、变动或开始收费之前，Singmy会在相关服务页面发布通知或公告。若您对上述更改、变更或付费条款持有异议，您应当暂停使用相应的服务。</span></li><li><span>在调整Singmy的收费标准，使其降低收费或将服务转换为免费时，Singmy不对原先的付费用户提供退款或费用调整服务。</span></li></ol><h4 id='九第三方提供的产品或服务'><span>九、【第三方提供的产品或服务】</span></h4><ol start='' ><li><span>您在Singmy平台上使用第三方提供的产品或服务时，除遵守本协议约定外，还应遵守第三方的用户协议。Singmy和第三方对可能出现的纠纷在法律规定和约定的范围内各自承担责任。</span></li><li><span>Singmy平台上引入的所有第三方产品或服务均已明确记录在《Singmy第三方服务清单》，详尽展示了所提供的各项服务。</span></li></ol><h4 id='十基于软件提供服务'><span>十、【基于软件提供服务】</span></h4><ol start='' ><li><p><span>在您使用本服务的过程中，可能需要下载相应的软件。对于这些软件，Singmy向您提供一项个人的、非排他性且不可转让的许可。您只能出于使用本服务的目的而使用这些软件。</span></p></li><li><p><span>为了提升用户的体验，确保服务的安全性以及确保产品功能的一致性，我们可能会对软件进行更新。为了能够让软件和服务正常使用，请您及时更新相关软件至最新版本。否则，我们无法确保软件或服务能够正常运行。</span></p></li><li><p><span>根据实际需求，Singmy可能会为各种设备开发不同的软件版本，用户应根据实际情况挑选适合的版本进行安装。用户可直接在Singmy平台获取软件，或从获得Singmy授权的第三方机构获取。若用户从未获授权的第三方或与软件名称相同的安装程序，Singmy无法确保该软件或服务能正常使用，对由此产生的任何损失将不予负责。</span></p></li><li><p><span>除非Singmy书面许可，否则您不得进行：</span></p><p><span>（1）删除软件及其副本上的著作权信息；</span></p><p><span>（2）尝试解密、汇编、编译软件，或破解其源代码；</span></p><p><span>（3）使用、租赁、出借、复制、修改、链接、转录、汇编、发表、出版、建立镜像站点；</span></p><p><span>（4）复制、修改、增加、删除、连接软件运行时释放的数据、客户端与服务器端交互数据，或系统必需的数据；</span></p><p><span>（5）通过修改软件运行中的指令、数据等任何方式，增加、删减、更改软件功能或运行效果，或运营、传播用于上述目的的软件、方法，无论其商业性质如何；</span></p><p><span>（6）使用非Singmy开发或授权的第三方软件、插件、外挂、系统、设备，登录或使用Singmy软件及服务，或制作、发布、传播用于登录或使用Singmy软件及服务的非Singmy开发或授权的第三方软件、插件、外挂、系统、设备。</span></p></li></ol><h4 id='十一知识产权声明'><span>十一、【知识产权声明】</span></h4><ol start='' ><li><span>本服务中所有提供的内容，包括但不限于网页、文字、图片、音频、视频、图表以及计算机软件等，其知识产权均属于Singmy。使用本服务所产生的内容，其知识产权将归属于用户或相关权益人。除非你和Singmy之间另行约定。</span></li><li><span>在未进行特殊声明的情况下，Singmy在提供服务时所依赖的软件的著作权、专利以及其他知识产权，均属于Singmy所有。</span></li><li><span>Singmy在本服务中所使用的“Singmy”、“SingmyWP”、“星谧”等商业标识，其著作权或商标权归Singmy所有。</span></li><li><span>在本服务中包含的所有知识产权，均严格遵守相关法律法规的规定，受到法律的全面保护。未经Singmy、用户或相关权利人的书面许可，任何人不得擅自进行任何形式的使用或创作。</span></li></ol><h4 id='十二用户违法违规行为'><span>十二、【用户违法违规行为】</span></h4><ol start='' ><li><span>在您使用本服务的过程中，请务必遵守法律法规，不得发布、复制、传播包含以下内容的信息，或进行与之相关的活动，同时，也不应为了发布、复制、传播包含以下内容的信息或进行与之相关的活动提供任何便利：</span></li></ol><p><span>（1）反对宪法所确定的基本原则的。</span></p><p><span>（2）危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的。</span></p><p><span>（3）损害国家荣誉和利益的。</span></p><p><span>（4）煽动民族仇恨、民族歧视，破坏民族团结的。</span></p><p><span>（5）破坏国家宗教政策，宣扬邪教和封建迷信的。</span></p><p><span>（6）散布谣言，扰乱社会秩序，破坏社会稳定的。</span></p><p><span>（7）散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的。</span></p><p><span>（8）侮辱或者诽谤他人，侵害他人合法权益的。</span></p><p><span>（9）违反法律法规底线、社会主义制度底线、国家利益底线、公民合法权益底线、社会公共秩序底线、道德风尚底线和信息真实性底线的“七条底线”要求的。</span></p><p><span>（10）相关法律法规或本协议、相关协议、规则等禁止的。</span></p><ol start='2' ><li><span>当您在使用本服务的过程中，如果违反了相关的法律法规或本协议的规定，相关的政府部门或机构可能会对您提起诉讼、处以罚款或者采取其他的制裁措施，并请求我们提供协助。因此，如果您的行为导致了他人的损失，您应当自行承担全部的责任，Singmy在此不承担任何责任。</span></li><li><span>对于您在本协议下的违规行为，Singmy有权独立进行判断并采取相应的措施，这包括但不限于通过技术手段删除、屏蔽相关内容或断开链接。同时，Singmy有权采取一系列行动，包括但不限于暂停或终止向您提供服务，对您使用Singmy帐号的能力进行限制、中止、冻结或终止，追究法律责任等。</span></li><li><span>若您违反本协议约定，导致任何主体损失，您应当独立承担责任；Singmy因此遭受损失的，您也应当一并赔偿。</span></li></ol><h4 id='十三遵守当地法律监管'><span>十三、【遵守当地法律监管】</span></h4><ol start='' ><li><span>在您使用本服务的过程中，请务必遵循当地相关的法律法规，并尊重当地的道德和风俗习惯。如果您的行为触犯了当地法律法规或社会规范，您应当自行承担相应的法律责任。</span></li><li><span>您应当避免由于操作本服务所引发的Singmy触碰法律法规或卷入政治、公众事件的可能性，一旦出现此类情况，Singmy将暂停或终止向您提供服务。</span></li></ol><h4 id='十四用户发送传播的内容与投诉处理'><span>十四、【用户发送、传播的内容与投诉处理】</span></h4><ol start='' ><li><span>您通过本服务所发布或传播的所有信息，包括但不限于网页、文字、图片、音频、视频等，都将由您自行承担相应的责任。</span></li><li><span>在您发布或散播任何信息时，必须确保该信息具备合规的源头，与此同时，这些信息必须完全归属于您或已经获得了适当的授权。</span></li><li><span>基于法律法规的约束，如果您提供的信息存在违法违规或侵犯他人权益的情况，Singmy有权依据其自身的判断和决定，采取相应的管理措施，包括但不限于删除、屏蔽或断开链接等。</span></li><li><span>若涉及到对他人的投诉或对他人的投诉，Singmy将会在必要情况下，将争议双方的主体信息、联系方式、投诉相关的内容等关键信息，传输至相应的当事人或者相关部门，以便于高效地解决投诉纠纷，保护各方合法权益。</span></li><li><span>您应当对您在投诉处理程序中提供的信息、材料、证据等的真实性、合法性、有效性负责。</span></li><li><span>您应当对您在处理投诉的过程中所提交的信息、材料及证据的真实性、合法性及有效性承担责任。</span></li></ol><h4 id='十五不可抗力及其他免责事由'><span>十五、【不可抗力及其他免责事由】</span></h4><ol start='' ><li><span>您理解并同意，在使用本服务的过程中，可能会遇到不可抗力影响，从而对服务的正常运行产生不利影响。在这种情况下，Singmy将努力与相关单位配合，争取在最短时间内采取必要的补救措施。由此给您造成的损失，Singmy在法律允许的范围内免责。</span></li><li><span>在法律允许的范围内，Singmy对以下情形导致的服务中断或受阻不承担责任：</span></li></ol><p><span>（1）受到计算机病毒、木马或其他恶意程序、黑客攻击的破坏。</span></p><p><span>（2）用户或Singmy的电脑软件、系统、硬件和通信线路出现故障。</span></p><p><span>（3）用户操作不当或用户通过非Singmy授权的方式使用本服务。</span></p><p><span>（4）程序版本过时、设备的老化或其兼容性问题。</span></p><p><span>（5）其他Singmy无法控制或合理预见的情形。</span></p><ol start='3' ><li><span>在您使用本服务的期间，可能会遭遇到网络信息或其他用户行为带来的不确定性或潜在风险。对此，Singmy不会为任何信息的真实性、适用性、合法性承担责任，也不会为因侵权行为对您可能产生的损失负责。这些风险可能包括：</span></li></ol><p><span>（1）来自他人匿名或冒名的含有威胁、诽谤、令人反感或非法内容的信息。</span></p><p><span>（2）遭受他人误导、欺骗或其他导致或可能导致的任何心理、生理上的伤害以及经济上的损失。</span></p><p><span>（3）其他因网络信息或用户行为引起的风险。</span></p><ol start='4' ><li><span>Singmy依据本协议约定获得处理违法违规内容的权利，此项权力并非Singmy的法定义务或承诺，Singmy不能保证能够及时发现并采取相应的处理措施。</span></li><li><span>不论何种情境，您均不应轻易接受他人的借款请求、索取您的密码，以及其他与财产有关的信息。进行财产相关操作时，务必首先验证对方的身份。同时，请务必关注我们Singmy发布的防范诈骗犯罪的相关提示。</span></li></ol><h4 id='十六协议的生效与变更'><span>十六、【协议的生效与变更】</span></h4><ol start='' ><li><span>您使用本服务即视为您已阅读本协议并接受本协议的约束。</span></li><li><span>Singmy有权在必要时修改本协议条款。协议条款修改后，Singmy将会以包括但不限于弹窗、公告、推送、短信的方式提醒您。您可以在相关服务页面查阅最新版本的协议条款。</span></li><li><span>本协议条款更新后，若您同意且继续使用由Singmy提供的软件或服务，我们将视为您已接受更新后的协议。</span></li></ol><h4 id='十七服务的变更中断终止'><span>十七、【服务的变更、中断、终止】</span></h4><ol start='' ><li><span>您已知悉并同意，Singmy依据其运营策略的调整，可能会对服务内容进行相应的变更，同时也可能导致服务的暂停、中止或终止。</span></li><li><span>在Singmy发生合并、分立、收购、资产转让等事件时，Singmy有权向第三方转让与本服务相关的资产；Singmy也可在未经您的事先许可下，单方面通知您，并将本协议下的部分或全部服务及相应的权利义务移交给第三方进行运营或履行。具体的受让方将以Singmy所发出的通知为准。</span></li><li><span>如发生下列任何一种情形，Singmy有权不经通知而中断或终止向您提供服务：</span></li></ol><p><span>（1）根据法律法规规定您应提交真实信息，而您提供的个人资料不真实、或与注册时信息不一致又未能提供合理证明。</span></p><p><span>（2）您违反相关法律法规的规定或违反本协议的约定。</span></p><p><span>（3）按照法律法规规定，司法机关或主管部门的要求。</span></p><p><span>（4）出于安全的原因或其他必要的情形。</span></p><ol start='4' ><li><span>根据协议规定，Singmy有权利向用户收取费用。若用户未能按约定时间足额支付费用，Singmy有权决定暂停、中止或终止其服务。</span></li><li><span>您必须自行负责对存储在本服务中的数据进行备份。如果您的服务被终止，Singmy有权在符合规定的前提下，从服务器上永久删除您的数据（法律法规另有规定的除外）。在服务终止或停止后，Singmy不承担向您提供或返还备份数据的责任。</span></li></ol><h4 id='十八管辖与法律适用'><span>十八、【管辖与法律适用】</span></h4><ol start='' ><li><span>本协议的成立、生效、履行、解释及纠纷解决等相关事宜，均适用中华人民共和国大陆地区法律（不包括冲突法）。</span></li><li><span>本协议签订地为中华人民共和国河南省邓州市古城街道。</span></li><li><span>对于您与Singmy之间可能产生的争议或纠纷，建议首先尝试进行友好解决，若无法达成共识，您同意将这些争议或纠纷提交至本协议签署地（即中华人民共和国河南省邓州市），该地具有管辖权的人民法院进行裁决。</span></li><li><span>即使有任何原因导致部分协议条款无法正常履行或丧失效力，其余有效的条款仍具有约束力，将继续约束签订本协议的双方。</span></li><li><span>若本协议有多个语言版本，相应内容不一致的，均以中文版的内容为准。</span></li></ol><h4 id='十九未成年人使用条款'><span>十九、【未成年人使用条款】</span></h4><ol start='' ><li><span>若用户为未满18周岁的未成年人，应在监护人监护、指导下阅读本协议和使用本服务。</span></li><li><span>未成年人用户身心发育尚不成熟，自我保护能力较弱，辨别是非能力和自我控制能力不强，容易受不良因素的影响和不法侵害。因此，未成年人用户在使用本服务时应注意以下事项，提高安全意识，加强自我保护：</span></li></ol><p><span>（1）明确区分网络与现实世界的差异，防止过分沉溺于虚拟环境，确保日常学习与生活的正常进行。</span></p><p><span>（2）在填写个人资料的过程中，务必强化自我保护意识，防止不法分子对个人生活的骚扰。</span></p><p><span>（3）在监护人或老师的指导下，学习正确使用网络。</span></p><p><span>（4）避免陌生网友随意会面，以免不法分子有机可乘，危及自身安全。</span></p><ol start='3' ><li><span>监护人以及学校在未成年人使用本服务的过程中，均有责任积极引导。尤其是家长，需关心子女的身心成长，注重与子女的交流，确保上网安全的注意事项得到充分了解，从而在问题发生之前做好预防。</span></li><li><span>已满18周岁的成年人，在任何情况下无法展现完全民事行为能力时，应参照适用本协议中未成年人使用条款的相关约定。</span></li><li><span>关于对未成年人隐私的保护，具体见《Singmy 隐私政策》</span></li></ol><h4 id='二十其他'><span>二十、【其他】</span></h4><p><span>20.1如果您对本协议或本服务有意见或建议，可与Singmy官方（</span><a href='mailto:singmywp@qq.com' target='_blank' class='url'>singmywp@qq.com</a><span>）或客户服务（</span><a href='mailto:singmyread@qq.com' target='_blank' class='url'>singmyread@qq.com</a><span>）联系，我们将感谢你的意见。</span></p><p><span>Singmy</span></p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>

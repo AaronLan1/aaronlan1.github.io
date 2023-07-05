@@ -1,0 +1,595 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>privacypolicy</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='singmy隐私政策'><span>Singmy隐私政策</span></h2><h4 id='引言'><span>引言</span></h4><p><span>Singmy严格遵守法律法规，遵循以下隐私保护原则，为您提供更加安全、可靠的服务：</span></p><ul><li><span>安全可靠</span></li></ul><p><span>我们竭尽全力通过合理有效的信息安全技术及管理流程，防止您的信息泄露、损毁、丢失。</span></p><ul><li><span>自主选择</span></li></ul><p><span>我们为您提供便利的信息管理选项，以便您做出合适的选择，管理您的个人信息。</span></p><ul><li><span>保护通信秘密</span></li></ul><p><span>我们严格遵照法律法规，保护您的通信秘密，为您提供安全的通信服务。</span></p><ul><li><span>合理必要</span></li></ul><p><span>为了向您和其他用户提供更好的服务，我们仅收集必要的信息。</span></p><ul><li><span>公开透明</span></li></ul><p><span>我们努力使用简明易懂的表述，向您介绍隐私政策，以便您清晰地了解我们的信息处理方式</span></p><ul><li><span>将隐私保护融入产品设计</span></li></ul><p><span>我们在产品和服务研发、运营的各个环节，融入隐私保护的理念。</span></p><p><span>《Singmy隐私政策》主要向您说明：</span></p><ul><li><span>我们收集哪些信息</span></li><li><span>我们收集信息的用途</span></li><li><span>您所享有的权利</span></li></ul><p><span>您可以通过阅读《Singmy隐私政策》（以下简称“本隐私政策”），详细了解我们对个人信息的收集、使用方式，以便您更好地了解我们的服务并作出适当的选择。</span></p><p><span>如果我们具体的产品和服务有具体的隐私保护指引，您可以查阅该特定隐私保护指引，以帮助您更好地保护您的个人信息。</span></p><p><span>本隐私政策适用的产品和服务由Singmy提供。注册地址为中华人民共和国河南省邓州市。</span></p><p><span>除另有约定外，本隐私政策所用术语与《Singmy服务协议》中的术语具有相同的涵义。</span></p><p><span>如您有问题，请</span><a href='javascript:;'><span>联系我们</span></a><span>。</span></p><p><span>#### </span></p><h4 id='我们收集什么信息'><span>我们收集什么信息</span></h4><p><span>我们根据法律法规的要求，遵循合法、正当、必要和诚信的原则，仅收集实现产品功能所必要的个人信息。这些信息包括：</span></p><ul><li><p><span>您在使用我们服务时主动提供的信息</span></p><ul><li><span>您在注册或使用我们的产品或服务时，主动填写或上传的昵称、手机号码、头像等。</span></li><li><span>您通过我们的客服或参加我们举办的活动时所提交的信息。</span></li><li><span>我们一些特定的服务可能需要您提供特定的个人信息来实现相关功能。若您选择不提供该类信息，将不会影响您使用产品或服务中的其他功能。</span></li></ul></li></ul><p>&nbsp;</p><ul><li><p><span>我们在您使用服务时获取的信息</span></p><ul><li><p><span>日志信息</span></p><p><span>当您使用我们的服务时，为了维护产品与服务的安全稳定运行，我们可能会收集设备信息、软件信息、服务日志信息等相关信息。</span></p></li></ul><p>&nbsp;</p><ul><li><p><span>位置信息</span></p><p><span>目前为止，Singmy不会收集任何您设备的位置信息，但Singmy服务中的第三方SDK可能会收集一些位置信息。如果您不愿意提供，不会影响您使用本产品或服务的其他功能。</span></p></li></ul><p>&nbsp;</p><ul><li><p><span>其他相关信息</span></p><p><span>为了帮助您更好地使用我们的产品或服务，经您的明确授权我们会收集相关信息，但仅限于必要信息。例如，当您使用从通讯录导入功能，我们仅会收集您的联系人的电话号码，除此之外不会获取任何其他信息。</span></p></li></ul></li></ul><p>&nbsp;</p><ul><li><span>其他用户分享的信息中含有您的信息</span></li></ul><p><span>其他用户发布的照片或分享的视频等可能包含您的信息。</span></p><h4 id='我们如何使用您的信息'><span>我们如何使用您的信息</span></h4><p><span>我们严格遵守法律法规的规定及与用户的约定，将收集的信息用于以下用途。若我们超出以下用途使用您的信息，我们将再次向您进行说明，并征得您的同意。</span></p><p><span>我们会始终坚决遵循相关法律法规并执行和与用户签订的协议中的条款，我们将收集的信息用于以下目的：</span></p><ul><li><p><span>向您提供服务</span></p></li><li><p><span>满足您的个性化需求</span></p></li><li><p><span>安全保障</span></p><p><span>我们将利用您提供的个人信息进行身份验证、安全防范、欺诈监测、数据备份和客户安全服务等。</span></p></li><li><p><span>邀请您参与我们对服务质量的调查</span></p></li></ul><p><span>为了提高您的使用体验、优化我们的服务，在您的许可下，我们会在符合相关法律法规的前提下，将从某项服务中收集的信息用于我们的其他服务。例如，我们可能会将您在使用我们某项服务时的信息，应用于个性化的服务体验、用户研究分析与统计等服务。</span></p><p><span>为提升服务的安全性，确保我们能更准确地掌握应用程序的运行情况，我们将可能进行相关信息的记录，比如您使用应用程序的频率、故障信息、总体使用情况、性能数据，以及应用程序的来源。我们承诺，我们将不会将存储于分析软件中的信息与您在应用程序中提供的个人身份信息相结合。</span></p><p><span>随着业务的发展，我们提供的产品功能和服务可能会有所调整和变化，若处理目的因此发生变更，我们将再次向您进行通知，并在征得您的同意后开始收集和处理数据。</span></p><p><span>#### </span></p><h4 id='我们如何使用cookie标识符及相关技术'><span>我们如何使用Cookie、标识符及相关技术</span></h4><p><a href='javascript:;'><span>Cookie</span></a><span>、标识符及相关技术是互联网行业普遍使用的技术。按照法律法规的相关规定，我们或我们的第三方合作伙伴，可能通过放置安全的Cookie、标识符及相关技术收集您的信息，以便为您提供更好的用户体验和服务。我们会严格要求第三方合作伙伴遵守本隐私政策的相关规定。</span></p><p><span>依据现行法律法规的规定，我们通过设置安全Cookies、标识符等技术手段，收集您的个人信息，以便为您提供更为优质的服务体验。我们也会严格要求第三方合作伙伴，确保其遵守本隐私政策的相关规定。</span></p><p><span>若您希望了解更多Cookie的安全性等信息，可参见《Singmy Cookie政策》。</span></p><h4 id='您分享的信息'><span>您分享的信息</span></h4><p><span>您有权根据我们的服务将您的相关信息与您的朋友、家人或其他用户进行共享。但其中可能包含了您的个人身份信息、个人财产信息等重要敏感信息。因此，在分享您的相关敏感信息时，您需要审慎对待。</span></p><p><span>您可以通过调整我们服务中的隐私设置，精确控制您要分享的信息范围，同时您也可以根据我们提供的指引，删除已公开分享的信息。我们提醒您，这些信息可能已被其他用户或不受我们控制的非关联第三方独立地储存。</span></p><h4 id='您如何管理自己的信息'><span>您如何管理自己的信息</span></h4><p><span>您在使用我们服务的过程中， 可以通过查阅、复制、更正、补充、删除等方式来管理您的信息。</span></p><p><span>例如，您在使用地理位置相关服务时，希望停止分享您的地理位置信息，您可通过手机定位关闭功能、软硬件服务商及通讯服务提供商的关闭方式停止分享。</span></p><p><span>在您行使上述权利时，我们将要求您进行身份验证，以确保帐号的稳定性。如您对此有任何疑虑，请依照本隐私政策中所述的联系方式，与我们进行联系。</span></p><p><span>由于技术的制约或法律监管的约束，我们可能无法满足您的所有需求。但我们承诺在法律法规规定的期限内及时提供反馈。同时，我们会不断地改进产品和服务，以确保您的权益得到保障。</span></p><h4 id='第三方数据处理及信息的公开披露'><span>第三方数据处理及信息的公开披露</span></h4><p><span>在与第三方合作期间，我们承诺严格遵守法律规定，以最小化必要性原则为基础，对数据进行安全稳健地处理和审慎处理。</span></p><p><span>我们将依据现行法律法规，对数据处理涉及的第三方实施严格管控。要求其严格遵循我们所制定的关于数据隐私保护的规定与要求，具体内容涵盖但不限于依据数据保护协议、承诺书及相关数据处理政策进行处理，以确保数据的安全性。</span></p><p><span>考虑到为您提供优质服务的目的，我们可能会将您的个人信息委托给第三方服务商处理，该服务商将在我们所设定的目的和相关委托处理协议的框架内，严格处理您的个人信息，不会主动公开披露您的个人信息，亦不会主动向合作伙伴分享可用于识别您个人身份的信息，除非经您单独同意或法律法规另有规定，例如：</span></p><ul><li><span>为订立、履行个人作为一方当事人的合同所必需，或者按照法律制定的劳动规章制度和依法签订的集体合同实施人力资源管理所必需；</span></li><li><span>为履行法定职责或者法定义务所必需；</span></li><li><span>为应对突发公共卫生事件，或者紧急情况下为保护自然人的生命健康和财产安全所必需；</span></li><li><span>为公共利益实施新闻报道、舆论监督等行为，在合理的范围内处理个人信息；</span></li><li><span>依照法律规定在合理的范围内处理个人自行公开或者其他已经合法公开的个人信息；</span></li><li><span>法律、行政法规规定的其他情形。</span></li></ul><p><span>随着我们业务的持续发展，当发生合并、收购、资产转让等交易导致向第三方转移您的个人信息时，我们将通过推送通知、公告等形式告知您相关情形，按照法律法规及不低于本隐私政策所要求的标准继续保护或要求新的管理者继续保护您的个人信息。</span></p><h4 id='我们可能向您发送的信息'><span>我们可能向您发送的信息</span></h4><ul><li><p><span>信息通知</span></p><p><span>您在使用我们的服务时，我们可能向您发送电子邮件、短信或推送通知。</span></p><p><span>您可以在设备上选择取消订阅信息通知。如特定的产品和服务存在个性化推送的信息，请您查阅该产品和服务具体的隐私保护指引获取更能的信息或关闭个性化推荐。</span></p></li><li><p><span>与服务有关的公告</span></p></li></ul><p><span>我们会在必要时（如因系统维护而暂停某一项服务时）向您发出与服务有关的公告。</span></p><p><span>您无法取消这些与服务有关、性质不属于广告的公告。</span></p><h4 id='存储信息的地点和期限'><span>存储信息的地点和期限</span></h4><ul><li><p><span>存储信息的地点</span></p><p><span>我们遵守法律法规的规定，将在中华人民共和国境内收集和产生的个人信息存储在境内。</span></p></li><li><p><span>存储信息的期限</span></p></li></ul><p><span>在正常情形下，我们只在达成目标的必要时间范围内保管您的个人信息，但以下状况除外：</span></p><ul><li><p><span>为遵守适用的法律法规等有关规定；</span></p></li><li><p><span>为遵守法院判决、裁定或其他法律程序的规定；</span></p></li><li><p><span>为遵守相关政府机关执法的要求；</span></p><p><span>在我们的产品或服务停止运营时，我们将采取发送通知和公告的方式告知您，同时在合理的期限内，我们将处理您的个人信息，根据您的信息内容进行删除或匿名化处理。</span></p></li></ul><h4 id='信息安全'><span>信息安全</span></h4><p><span>我们将为您的信息提供严密的安全防护，防止丢失、不当使用、未经授权访问或泄露。</span></p><p><span>我们严格遵守各项法律法规，致力于保护用户通信隐私。</span></p><p><span>我们将在符合法规要求的前提下，采用一系列的安全防护策略，以维护信息的安全性和完整性。</span></p><p><span>我们运用加密技术与匿名化处理的手段，对您的个人信息进行妥善保护。我们对访问信息的人员进行严格筛选，并要求他们严格遵守保密义务，同时进行必要的审查与监测。</span></p><p><span>如遭遇个人信息泄露等安全事件，我们将立即启动应急响应，防止事态扩大，并通过公告和推送通知等方式，及时通知您。</span></p><h4 id='广告'><span>广告</span></h4><p><span>目前为止，Singmy不会向产品或服务内插入任何形式的商业广告，但Singmy服务中的第三方SDK可能会投放一些广告，Singmy将尽力避免这种情况的发生。对这些第三方SDK可能投放的广告，您应审慎判断其真实性和可靠性。</span></p><h4 id='未成年人保护'><span>未成年人保护</span></h4><p><span>我们非常重视对未成年人个人信息的保护。</span></p><p><span>根据《儿童个人信息网络保护规定》等法律法规的规定，若您是18周岁以下的未成年人，在使用Singmy的服务前，应事先取得您的家长或法定监护人的同意，并且应当按照注册、使用流程，由您的家长或法定监护人帮助您完成产品或服务注册流程，以便您能使用我们提供的产品或服务。</span></p><p><span>对于14周岁以下的儿童，我们提供特定的产品或服务，这些产品或服务具备为儿童量身定做的功能板块，或者，需要用户提供生日或年龄信息，以便我们识别用户的年龄。</span></p><p><span>若您是儿童的监护人，当您在帮助儿童完成产品或服务的注册、使用前，应当仔细阅读本政策，决定是否同意本政策，并帮助儿童进行注册、使用，以便儿童能使用我们提供的产品或服务。</span></p><h4 id='适用范围'><span>适用范围</span></h4><p><span>本隐私政策适用的产品和服务由深圳市Singmy计算机系统有限公司提供。</span></p><p><span>如本政策与特定服务的隐私声明有不一致之处，请以该特定隐私声明为准。</span></p><p><span>请您注意，本政策不适用由其他公司或个人提供的服务。</span></p><p><span>您使用第三方服务时须受其隐私政策（而非本政策）约束，您需要仔细阅读其政策内容。</span></p><h4 id='联系我们'><span>联系我们</span></h4><p><span>我们设立了专门的个人信息保护团队和个人信息保护负责人，如果您对本隐私政策或个人信息保护相关事宜有任何疑问或投诉、建议时，您可以通过以下方式与我们联系：</span></p><p><a href='mailto:singmywp@qq.com' target='_blank' class='url'>singmywp@qq.com</a></p><p><a href='mailto:singmyread@qq.com' target='_blank' class='url'>singmyread@qq.com</a></p><h4 id='变更'><span>变更</span></h4><p><span>我们可能适时修订本隐私政策内容。</span></p><p><span>本政策内容修改后，Singmy将会以包括但不限于弹窗、公告、推送、短信的方式提醒您。您可以在相关服务页面查阅最新版本的隐私政策。本协议条款更新后，若您同意并且继续使用由Singmy提供的软件或服务，我们将视为您已接受更新后的协议。</span></p><p><span>Singmy</span></p></div></div>
+</body>
+</html>

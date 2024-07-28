@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SinleUI - 此站点已废弃</title>
+
+    <style>
+      body {
+        background-color: #f9f9f9;
+        overflow: hidden;
+      }
+
+      .body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      .contain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+        border-radius: 20px;
+        max-width: 500px;
+        background-color: #fff;
+        padding: 50px 20px;
+        flex-direction: column;
+      }
+
+      .logo {
+        width: 150px;
+        height: 150px;
+        transition: all 0.3s;
+        user-select: none;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .description {
+        text-align: center;
+        color: #6d6d6d;
+        margin-top: -5px;
+      }
+
+      .gap {
+        height: 20px;
+      }
+
+      a {
+        border-radius: 13px !important;
+        padding: 0 30px !important;
+        line-height: 45px !important;
+        font-size: 16px !important;
+        display: inline-block;
+        border: none !important;
+        text-align: center;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: color 0.25s, border-color 0.25s, background-color 0.25s;
+        user-select: none;
+        text-decoration: inherit;
+      }
+
+      a.brand {
+        color: #fff;
+        background-color: #4d82ff;
+        margin-right: 5px;
+      }
+
+      a.brand:hover {
+        background-color: #5c92ff;
+      }
+
+      a.brand:active {
+        background-color: #73a2ff;
+      }
+
+      a.alt {
+        color: #000;
+        background-color: #f7f7f8;
+      }
+
+      a.alt:hover {
+        background-color: #f5f5f5;
+      }
+
+      a.alt:active {
+        background-color: #efeff1;
+      }
+
+      .button-group {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 500px) {
+        .contain {
+          width: 80%;
+        }
+        .logo {
+          width: 100px;
+          height: 100px;
+          transition: all 0.3s;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="body">
+      <div class="contain">
+        <h1 class="title">⚠️ 重要通知</h1>
+        <p class="description">
+          SinleUI 文档已转移至 https://singmywp.github.io/
+        </p>
+        <div class="button-group">
+          <a class="brand" href="https://singmywp.github.io/">点击访问</a>
+          <a class="alt" href="https://ext.dcloud.net.cn/plugin?name=sinle-ui"
+            >插件市场</a
+          >
+        </div>
+      </div>
+      <div class="gap"></div>
+      <div class="contain">
+        <img class="logo" src="/logo.png" />
+        <h1 class="title">SinleUI</h1>
+        <p class="description">一个简洁、轻巧的现代移动应用UI框架</p>
+      </div>
+    </div>
+  </body>
+</html>
